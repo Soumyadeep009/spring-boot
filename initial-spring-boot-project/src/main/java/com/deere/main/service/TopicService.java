@@ -20,4 +20,19 @@ public class TopicService {
 	public List<Topic> getAllTopics(){
 		return topics;
 	}
+	
+	public Topic getTopicById(String id){
+		
+		/** Iterative way to find a resource */
+		/*for(Topic t: topics){
+			if(t.getId().equals(id)){
+				return t;
+			}
+		}
+		return null;*/
+		
+		
+		/** Elegant way or using streams to find it a resource */
+		return topics.stream().filter(t -> t.getId().equals(id)).findFirst().get();
+	}
 }

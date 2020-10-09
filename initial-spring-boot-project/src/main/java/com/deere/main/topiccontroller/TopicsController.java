@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,5 +20,10 @@ public class TopicsController {
 	@RequestMapping("/topics")
 	public List<Topic> getAllTopics() {
 		return topicService.getAllTopics();
+	}
+	
+	@RequestMapping("/topics/{id}")
+	public Topic getTopicById(@PathVariable String id){
+		return topicService.getTopicById(id);
 	}
 }
