@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,7 @@ public class TopicsController {
 		topicService.updateTopic(id, topic);
 	}
 	
+	@Profile("dev")
 	@RequestMapping(method=RequestMethod.DELETE, value="/topics/{id}")
 	public void deleteTopic(@PathVariable String id){
 		topicService.deleteTopic(id);
